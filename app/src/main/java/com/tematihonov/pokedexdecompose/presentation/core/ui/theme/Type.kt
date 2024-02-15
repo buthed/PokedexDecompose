@@ -1,4 +1,4 @@
-package com.tematihonov.pokedexdecompose.ui.theme
+package com.tematihonov.pokedexdecompose.presentation.core.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

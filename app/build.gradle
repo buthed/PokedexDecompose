@@ -74,6 +74,9 @@ dependencies {
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
 
+    //Coil
+    implementation Coil.coil
+
     // Tests
     testImplementation TestImplementation.junit
     androidTestImplementation AndroidTestImplementation.junit
