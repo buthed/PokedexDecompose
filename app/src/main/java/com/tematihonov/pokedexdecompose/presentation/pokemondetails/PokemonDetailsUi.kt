@@ -19,11 +19,11 @@ import com.tematihonov.pokedexdecompose.R
 import com.tematihonov.pokedexdecompose.presentation.appcomponents.TopAppBarPokemonDetails
 
 @Composable
-fun PokemonDetailsUi() {
+fun PokemonDetailsUi(pokemonsId: Int, component: PokemonDetailsComponent) {
     Scaffold(
         topBar = {
             TopAppBarPokemonDetails() {
-                // TODO add
+                component.goBack()
             }
         }
     ) { paddingValues ->
@@ -59,8 +59,16 @@ fun PokemonDetailsUi() {
     }
 }
 
+class FakePokemonDetailsComponent(): PokemonDetailsComponent {
+    override fun goBack() {
+        TODO("Not yet implemented")
+    }
+
+}
+
+
 @Preview(showSystemUi = true)
 @Composable
 fun PokemonDetailsUiPreview() {
-    PokemonDetailsUi()
+    PokemonDetailsUi(1,FakePokemonDetailsComponent())
 }

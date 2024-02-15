@@ -1,5 +1,6 @@
 package com.tematihonov.pokedexdecompose.presentation.pokemonslist.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,11 +16,12 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 
 @Composable
-fun PokemonsListItem() {
+fun PokemonsListItem(selectnewPokemon: () ->Unit) {
     Row(
         Modifier
             .fillMaxWidth()
-            .padding(10.dp),
+            .padding(10.dp)
+            .clickable(onClick = selectnewPokemon),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
@@ -39,5 +41,5 @@ fun PokemonsListItem() {
 @Preview(showSystemUi = true)
 @Composable
 fun PokemonsListItemPreview() {
-    PokemonsListItem()
+    PokemonsListItem(){}
 }

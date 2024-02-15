@@ -52,7 +52,8 @@ object JetpackCompose {
 }
 
 object Decompose {
-    const val decompose = "com.arkivanov.decompose:extensions-compose-jetpack:${Version.decompose}"
+    const val decomposeJetbrains = "com.arkivanov.decompose:extensions-compose-jetbrains:${Version.decompose}"
+    const val decompose = "com.arkivanov.decompose:decompose:${Version.decompose}"
 }
 
 object DaggerHilt {

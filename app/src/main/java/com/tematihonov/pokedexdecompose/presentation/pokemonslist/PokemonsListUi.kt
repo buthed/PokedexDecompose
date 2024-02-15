@@ -8,11 +8,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.tematihonov.pokedexdecompose.R
+import com.tematihonov.pokedexdecompose.navigation.PokemonsListEvent
 import com.tematihonov.pokedexdecompose.presentation.appcomponents.TopAppBarDefault
 import com.tematihonov.pokedexdecompose.presentation.pokemonslist.components.PokemonsListItem
 
 @Composable
-fun PokemonsList() {
+fun PokemonsListUi(component: PokemonListComponent) {
     Scaffold(
         topBar = {
             TopAppBarDefault(stringResource(id = R.string.pokemons_list))
@@ -20,14 +21,23 @@ fun PokemonsList() {
     ) { paddingValues ->
         LazyColumn(modifier = Modifier.padding(top = paddingValues.calculateTopPadding())) {
             items(5) {
-                PokemonsListItem()
+                PokemonsListItem() {
+                    component.onEvent(PokemonsListEvent.ClickButtonA(1))
+                }
             }
         }
     }
 }
 
+class FakePokemonListComponent(): PokemonListComponent {
+    override fun onEvent(event: PokemonsListEvent) {
+        TODO("Not yet implemented")
+    }
+
+}
+
 @Preview(showSystemUi = true)
 @Composable
 fun PokemonsListPreview() {
-    PokemonsList()
+    PokemonsListUi(FakePokemonListComponent())
 }

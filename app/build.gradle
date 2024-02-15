@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
+    id 'org.jetbrains.kotlin.plugin.serialization'
 }
 
 android {
@@ -35,9 +36,13 @@ android {
     }
     kotlinOptions {
         jvmTarget = '17'
+        languageVersion = '1.9'
     }
     buildFeatures {
         compose true
+    }
+    kotlin.sourceSets.all {
+        it.languageSettings.enableLanguageFeature("DataObjects")
     }
     composeOptions {
         kotlinCompilerExtensionVersion '1.4.0'
@@ -62,6 +67,11 @@ dependencies {
 
     // Decompose
     implementation Decompose.decompose
+    implementation Decompose.decomposeJetbrains
+    implementation "com.arkivanov.decompose:extensions-android:2.2.2"
+
+    // Serialization
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0'
 
     // Material
     implementation JetpackCompose.composeMaterial
