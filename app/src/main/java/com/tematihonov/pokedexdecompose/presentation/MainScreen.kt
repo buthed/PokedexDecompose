@@ -3,8 +3,6 @@ package com.tematihonov.pokedexdecompose.presentation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.slide
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
 import com.tematihonov.pokedexdecompose.navigation.RootComponent
 import com.tematihonov.pokedexdecompose.presentation.aboutapp.AboutAppUi
@@ -20,7 +18,7 @@ fun MainScreen(root: RootComponent) {
     ) { child ->
         when (val instance = child.instance) {
             is RootComponent.Child.PokemonsList -> PokemonsListUi(instance.component)
-            is RootComponent.Child.PokemonDetails -> PokemonDetailsUi(pokemonsId = 1, component = instance.component)
+            is RootComponent.Child.PokemonDetails -> PokemonDetailsUi(pokemonsName = instance.component.pokemonName, component = instance.component)
             is RootComponent.Child.AboutApp -> AboutAppUi(instance.component)
         }
     }

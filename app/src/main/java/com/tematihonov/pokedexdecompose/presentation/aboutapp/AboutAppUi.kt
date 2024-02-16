@@ -11,10 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.tematihonov.pokedexdecompose.R
-import com.tematihonov.pokedexdecompose.navigation.PokemonsListEvent
 import com.tematihonov.pokedexdecompose.navigation.Screen
 import com.tematihonov.pokedexdecompose.presentation.appcomponents.TopAppBarDefault
-import com.tematihonov.pokedexdecompose.presentation.pokemonslist.PokemonListComponent
 
 @Composable
 fun AboutAppUi(component: AboutAppComponent) {

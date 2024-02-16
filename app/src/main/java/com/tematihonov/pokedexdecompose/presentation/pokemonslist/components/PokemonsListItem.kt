@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 
 @Composable
-fun PokemonsListItem(selectnewPokemon: () ->Unit) {
+fun PokemonsListItem(pokemonName: String, selectnewPokemon: () ->Unit) {
     Row(
         Modifier
             .fillMaxWidth()
@@ -32,7 +32,7 @@ fun PokemonsListItem(selectnewPokemon: () ->Unit) {
                 .size(70.dp)
         )
         Column {
-            Text(text = "Bulbasaur")
+            Text(text = pokemonName)
             Text(text = "#0001")
         }
     }
@@ -41,5 +41,5 @@ fun PokemonsListItem(selectnewPokemon: () ->Unit) {
 @Preview(showSystemUi = true)
 @Composable
 fun PokemonsListItemPreview() {
-    PokemonsListItem(){}
+    PokemonsListItem("Bulbasaur"){}
 }

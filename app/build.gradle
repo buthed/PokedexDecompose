@@ -68,10 +68,10 @@ dependencies {
     // Decompose
     implementation Decompose.decompose
     implementation Decompose.decomposeJetbrains
-    implementation "com.arkivanov.decompose:extensions-android:2.2.2"
+    implementation Decompose.extensionsAndroid
 
     // Serialization
-    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0'
+    implementation KotlinX.serialization
 
     // Material
     implementation JetpackCompose.composeMaterial
@@ -83,6 +83,11 @@ dependencies {
     // Hilt
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
+    implementation DaggerHilt.hiltNavigationCompose
+
+    // Retrofit
+    implementation Retrofit2.retrofit2
+    implementation Retrofit2.retrofit2Converter
 
     //Coil
     implementation Coil.coil

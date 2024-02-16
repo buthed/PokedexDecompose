@@ -13,6 +13,9 @@ object Version {
     // Decompose
     const val decompose = "2.2.2"
 
+    // KotlinX
+    const val serialization = "1.6.0"
+
     // Hilt
     const val hiltAndroid = "2.44.2"
     const val hiltCompiler = "2.44.2"
@@ -36,6 +39,10 @@ object Deps {
     const val kotlinBomPlatform = "org.jetbrains.kotlin:kotlin-bom:${Version.kotlinBomPlatform}"
 }
 
+object KotlinX {
+    const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Version.serialization}"
+}
+
 object LifecycleScope {
     const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.lifecycleRuntime}"
 }
@@ -54,6 +61,7 @@ object JetpackCompose {
 object Decompose {
     const val decomposeJetbrains = "com.arkivanov.decompose:extensions-compose-jetbrains:${Version.decompose}"
     const val decompose = "com.arkivanov.decompose:decompose:${Version.decompose}"
+    const val extensionsAndroid = "com.arkivanov.decompose:decompose:${Version.decompose}"
 }
 
 object DaggerHilt {

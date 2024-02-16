@@ -1,6 +1,5 @@
 package com.tematihonov.pokedexdecompose.navigation
 
-import androidx.compose.ui.res.stringResource
 import com.tematihonov.pokedexdecompose.R
 
 sealed class Screen(

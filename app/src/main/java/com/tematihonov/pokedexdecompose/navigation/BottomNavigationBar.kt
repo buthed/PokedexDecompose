@@ -7,22 +7,10 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.slide
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
-import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
-import com.tematihonov.pokedexdecompose.presentation.aboutapp.AboutAppUi
-import com.tematihonov.pokedexdecompose.presentation.aboutapp.RealAboutAppComponent
-import com.tematihonov.pokedexdecompose.presentation.pokemondetails.PokemonDetailsUi
-import com.tematihonov.pokedexdecompose.presentation.pokemonslist.PokemonsListUi
 
 @Composable
 fun BottomNavigationBar(

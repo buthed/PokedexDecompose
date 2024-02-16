@@ -13,7 +13,9 @@ import com.tematihonov.pokedexdecompose.navigation.BottomNavigationBar
 import com.tematihonov.pokedexdecompose.navigation.RootComponent
 import com.tematihonov.pokedexdecompose.navigation.Screen
 import com.tematihonov.pokedexdecompose.presentation.core.ui.theme.PokedexDecomposeTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

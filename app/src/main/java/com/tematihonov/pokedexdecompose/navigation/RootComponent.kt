@@ -30,15 +30,16 @@ class RootComponent(
     ): Child {
         return when (config) {
             Configuration.PokemonsList -> Child.PokemonsList(
-                RealPokemonListComponent(componentContext = context,
-                    onNavigateToDetailsScreen = { pokemonId ->
-                        navigation.pushNew(Configuration.PokemonDetails(pokemonId))
+                RealPokemonListComponent(
+                    componentContext = context,
+                    onNavigateToDetailsScreen = { pokemonName ->
+                        navigation.pushNew(Configuration.PokemonDetails(pokemonName))
                     })
             )
 
             is Configuration.PokemonDetails -> Child.PokemonDetails(
                 RealPokemonDetailsComponent(
-                    pokemonId = config.pokemonId,
+                    pokemonName = config.pokemonName,
                     componentContext = context,
                     backToPokemonsListScreen = {
                         navigation.pop()
@@ -68,7 +69,7 @@ class RootComponent(
         data object PokemonsList : Configuration()
 
         @Serializable
-        data class PokemonDetails(val pokemonId: Int) : Configuration()
+        data class PokemonDetails(val pokemonName: String) : Configuration()
 
         @Serializable
         data object AboutApp : Configuration()
