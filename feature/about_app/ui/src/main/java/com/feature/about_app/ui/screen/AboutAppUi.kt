@@ -1,4 +1,4 @@
-package com.tematihonov.pokedexdecompose.presentation.aboutapp
+package com.feature.about_app.ui.screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,9 +10,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.feature.pokemonslist.ui.screen.pokemonslist.components.TopAppBarDefault
-import com.tematihonov.pokedexdecompose.R
-import com.tematihonov.pokedexdecompose.navigation.Screen
+import com.core.common.navigation.Screen
+import com.core.common.navigation.components.AboutAppComponent
+import com.core.common.R
+import com.feature.about_app.ui.screen.components.TopAppBarDefault
+
 
 @Composable
 fun AboutAppUi(component: AboutAppComponent) {

@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.core.common.R
-import com.core.common.components.PokemonDetailsComponent
+import com.core.common.navigation.components.PokemonDetailsComponent
 import com.feature.pokemon_details.ui.screen.pokemondetails.components.TopAppBarPokemonDetails
 
 @Composable

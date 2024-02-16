@@ -9,9 +9,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.retainedComponent
+import com.core.common.navigation.Screen
 import com.tematihonov.pokedexdecompose.navigation.BottomNavigationBar
 import com.tematihonov.pokedexdecompose.navigation.RootComponent
-import com.tematihonov.pokedexdecompose.navigation.Screen
 import com.tematihonov.pokedexdecompose.presentation.core.ui.theme.PokedexDecomposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 

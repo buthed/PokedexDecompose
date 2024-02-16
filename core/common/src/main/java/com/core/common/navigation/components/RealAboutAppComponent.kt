@@ -1,7 +1,7 @@
-package com.tematihonov.pokedexdecompose.presentation.aboutapp
+package com.core.common.navigation.components
 
 import com.arkivanov.decompose.ComponentContext
-import com.tematihonov.pokedexdecompose.navigation.Screen
+import com.core.common.navigation.Screen
 
 class RealAboutAppComponent(
     componentContext: ComponentContext,

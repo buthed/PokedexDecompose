@@ -1,6 +1,6 @@
-package com.tematihonov.pokedexdecompose.navigation
+package com.core.common.navigation
 
-import com.tematihonov.pokedexdecompose.R
+import com.core.common.R
 
 sealed class Screen(
     val name: Int

@@ -12,9 +12,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.core.common.components.PokemonListComponent
+import com.core.common.navigation.components.PokemonListComponent
 import com.core.common.R
-import com.core.common.components.PokemonsListEvent
+import com.core.common.navigation.components.PokemonsListEvent
 import com.feature.pokemonslist.ui.screen.pokemonslist.components.PokemonsListItem
 import com.feature.pokemonslist.ui.screen.pokemonslist.components.TopAppBarDefault
 

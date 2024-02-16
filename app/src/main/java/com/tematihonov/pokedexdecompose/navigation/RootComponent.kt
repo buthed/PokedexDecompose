@@ -6,9 +6,10 @@ import com.arkivanov.decompose.router.stack.bringToFront
 import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.pushNew
-import com.core.common.components.RealPokemonDetailsComponent
-import com.core.common.components.RealPokemonListComponent
-import com.tematihonov.pokedexdecompose.presentation.aboutapp.RealAboutAppComponent
+import com.core.common.navigation.Screen
+import com.core.common.navigation.components.RealPokemonDetailsComponent
+import com.core.common.navigation.components.RealPokemonListComponent
+import com.core.common.navigation.components.RealAboutAppComponent
 import kotlinx.serialization.Serializable
 
 class RootComponent(

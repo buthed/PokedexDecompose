@@ -1,27 +1,19 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
-    id 'org.jetbrains.kotlin.plugin.serialization'
 }
 
 android {
-    namespace 'com.tematihonov.pokedexdecompose'
+    namespace 'com.feature.about_app.ui'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.tematihonov.pokedexdecompose"
         minSdk 24
-        //noinspection ExpiredTargetSdkVersion
-        targetSdk 26
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary true
-        }
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -40,9 +32,6 @@ android {
     buildFeatures {
         compose true
     }
-    kotlin.sourceSets.all {
-        it.languageSettings.enableLanguageFeature("DataObjects")
-    }
     composeOptions {
         kotlinCompilerExtensionVersion '1.4.0'
     }
@@ -55,13 +44,6 @@ android {
 
 dependencies {
 
-    implementation project(path: ':feature:pokemonslist:ui')
-    implementation project(path: ':feature:pokemonslist:domain')
-    implementation project(path: ':feature:pokemonslist:data')
-    implementation project(path: ':feature:pokemon_details:ui')
-    implementation project(path: ':feature:pokemon_details:domain')
-    implementation project(path: ':feature:pokemon_details:data')
-    implementation project(path: ':feature:about_app:ui')
     implementation project(path: ':core:common')
 
     implementation Deps.core
@@ -72,14 +54,6 @@ dependencies {
     implementation JetpackCompose.composeUi
     implementation JetpackCompose.composeGraphics
     implementation JetpackCompose.composeUiToolingPreview
-
-    // Decompose
-    implementation Decompose.decompose
-    implementation Decompose.decomposeJetbrains
-    implementation Decompose.extensionsAndroid
-
-    // Serialization
-    implementation KotlinX.serialization
 
     // Material
     implementation JetpackCompose.composeMaterial
@@ -93,11 +67,11 @@ dependencies {
     kapt(DaggerHilt.hiltCompiler)
     implementation DaggerHilt.hiltNavigationCompose
 
-    // Retrofit
+    // Retrofit2
     implementation Retrofit2.retrofit2
     implementation Retrofit2.retrofit2Converter
 
-    //Coil
+    // Coil
     implementation Coil.coil
 
     // Tests

@@ -1,4 +1,4 @@
-package com.core.common.components
+package com.core.common.navigation.components
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
