@@ -1,7 +1,7 @@
 package com.tematihonov.pokedexdecompose.navigation
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -29,8 +29,8 @@ fun BottomNavigationBar(
                 icon = {
                     Column(
                         modifier = Modifier
-                            .fillMaxHeight()
-                            .padding(vertical = 8.dp),
+                            .height(25.dp)
+                            .padding(vertical = 2.dp),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(text = stringResource(id = item.name))

@@ -11,7 +11,7 @@ import javax.inject.Inject
 class GetPokemonListUseCase @Inject constructor(
     private val networkRepository: NetworkRepository
 ) {
-    suspend operator fun invoke(): Flow<PokemonsListResponse> = flow {
-        emit(networkRepository.getPokemonsList())
+    suspend operator fun invoke(limit: Int, offset: Int): Flow<PokemonsListResponse> = flow {
+        emit(networkRepository.getPokemonsList(limit, offset))
     }.flowOn(Dispatchers.IO)
 }

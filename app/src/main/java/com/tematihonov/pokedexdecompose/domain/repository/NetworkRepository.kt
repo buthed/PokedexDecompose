@@ -5,7 +5,7 @@ import com.tematihonov.pokedexdecompose.data.models.PokemonsListResponse.Pokemon
 
 interface NetworkRepository {
 
-    suspend fun getPokemonsList(): PokemonsListResponse
+    suspend fun getPokemonsList(limit: Int, offset: Int): PokemonsListResponse
 
     suspend fun getPokemonDetails(name: String): PokemonResponse
 }

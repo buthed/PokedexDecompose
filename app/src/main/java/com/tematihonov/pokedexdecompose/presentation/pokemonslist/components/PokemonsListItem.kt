@@ -14,9 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.tematihonov.pokedexdecompose.data.models.PokemonsListResponse.Result
 
 @Composable
-fun PokemonsListItem(pokemonName: String, selectnewPokemon: () ->Unit) {
+fun PokemonsListItem(
+    rowIndex: Int,
+    entries: List<Result>,
+    selectnewPokemon: () ->Unit
+) {
     Row(
         Modifier
             .fillMaxWidth()
@@ -32,8 +37,8 @@ fun PokemonsListItem(pokemonName: String, selectnewPokemon: () ->Unit) {
                 .size(70.dp)
         )
         Column {
-            Text(text = pokemonName)
-            Text(text = "#0001")
+            Text(text = entries[rowIndex].name)
+            Text(text = entries[rowIndex].url.dropLast(1).takeLastWhile { it.isDigit() }) //TODO refactor
         }
     }
 }
@@ -41,5 +46,5 @@ fun PokemonsListItem(pokemonName: String, selectnewPokemon: () ->Unit) {
 @Preview(showSystemUi = true)
 @Composable
 fun PokemonsListItemPreview() {
-    PokemonsListItem("Bulbasaur"){}
+    PokemonsListItem(1, emptyList()){}
 }
