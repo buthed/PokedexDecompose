@@ -1,0 +1,85 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    namespace 'com.feature.pokemon_details.ui'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 24
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.0'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':core:common')
+    implementation project(path: ':feature:pokemon_details:domain')
+
+    implementation Deps.core
+    implementation platform(Deps.kotlinBomPlatform)
+    implementation LifecycleScope.lifecycleRuntime
+    implementation JetpackCompose.composeActivity
+    implementation platform(JetpackCompose.composeBomPlatform)
+    implementation JetpackCompose.composeUi
+    implementation JetpackCompose.composeGraphics
+    implementation JetpackCompose.composeUiToolingPreview
+
+    // Material
+    implementation JetpackCompose.composeMaterial
+    implementation JetpackCompose.composeMaterial3
+
+    // Navigation
+    implementation JetpackCompose.composeNavigation
+
+    // Hilt
+    implementation(DaggerHilt.hiltAndroid)
+    kapt(DaggerHilt.hiltCompiler)
+    implementation DaggerHilt.hiltNavigationCompose
+
+    // Retrofit2
+    implementation Retrofit2.retrofit2
+    implementation Retrofit2.retrofit2Converter
+
+    // Coil
+    implementation Coil.coil
+
+    // Tests
+    testImplementation TestImplementation.junit
+    androidTestImplementation AndroidTestImplementation.junit
+    androidTestImplementation AndroidTestImplementation.espresso
+    androidTestImplementation AndroidTestImplementation.junit4
+    debugImplementation DebugImplementation.toolingUi
+    debugImplementation DebugImplementation.manifestTest
+}

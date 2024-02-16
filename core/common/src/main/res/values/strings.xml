@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PokedexDecompose</string>
+
+    // Pokemons list
+    <string name="pokemons_list">Список покемонов</string>
+
+    // About app
+    <string name="about_app">О приложении</string>
+
+    // Pokemon details
+    <string name="height">Высота</string>
+    <string name="weight">Вес</string>
+</resources>

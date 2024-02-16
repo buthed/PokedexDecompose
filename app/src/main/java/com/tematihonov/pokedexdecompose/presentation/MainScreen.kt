@@ -6,8 +6,8 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
 import com.tematihonov.pokedexdecompose.navigation.RootComponent
 import com.tematihonov.pokedexdecompose.presentation.aboutapp.AboutAppUi
-import com.tematihonov.pokedexdecompose.presentation.pokemondetails.PokemonDetailsUi
-import com.tematihonov.pokedexdecompose.presentation.pokemonslist.PokemonsListUi
+import com.feature.pokemon_details.ui.screen.pokemondetails.PokemonDetailsUi
+import com.feature.pokemonslist.ui.screen.pokemonslist.PokemonsListUi
 
 @Composable
 fun MainScreen(root: RootComponent) {
@@ -17,8 +17,13 @@ fun MainScreen(root: RootComponent) {
         //animation = stackAnimation(slide()) //TODO recheck
     ) { child ->
         when (val instance = child.instance) {
-            is RootComponent.Child.PokemonsList -> PokemonsListUi(instance.component)
-            is RootComponent.Child.PokemonDetails -> PokemonDetailsUi(pokemonsName = instance.component.pokemonName, component = instance.component)
+            is RootComponent.Child.PokemonsList -> com.feature.pokemonslist.ui.screen.pokemonslist.PokemonsListUi(
+                instance.component
+            )
+            is RootComponent.Child.PokemonDetails -> com.feature.pokemon_details.ui.screen.pokemondetails.PokemonDetailsUi(
+                pokemonsName = instance.component.pokemonName,
+                component = instance.component
+            )
             is RootComponent.Child.AboutApp -> AboutAppUi(instance.component)
         }
     }

@@ -15,3 +15,11 @@ dependencyResolutionManagement {
 
 rootProject.name = "PokedexDecompose"
 include ':app'
+include ':feature:pokemonslist:data'
+include ':feature:pokemonslist:domain'
+include ':feature:pokemonslist:ui'
+include ':feature:pokemon_details:data'
+include ':feature:pokemon_details:domain'
+include ':feature:pokemon_details:ui'
+include ':core:network'
+include ':core:common'

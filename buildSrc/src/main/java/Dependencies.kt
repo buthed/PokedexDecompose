@@ -2,6 +2,8 @@ object Version {
     // Deps
     const val core = "1.10.1"
     const val kotlinBomPlatform = "1.8.0"
+    const val appCompat = "1.6.1"
+    const val androidMaterial = "1.11.0"
     const val lifecycleRuntime = "2.6.1"
 
     // Jetpack Compose
@@ -17,8 +19,8 @@ object Version {
     const val serialization = "1.6.0"
 
     // Hilt
-    const val hiltAndroid = "2.44.2"
-    const val hiltCompiler = "2.44.2"
+    const val hiltAndroid = "2.50"
+    const val hiltCompiler = "2.50"
     const val hiltNavigationCompose = "1.0.0"
 
     // Retrofit
@@ -37,6 +39,8 @@ object Version {
 object Deps {
     const val core = "androidx.core:core-ktx:${Version.core}"
     const val kotlinBomPlatform = "org.jetbrains.kotlin:kotlin-bom:${Version.kotlinBomPlatform}"
+    const val appCompat = "androidx.appcompat:appcompat:${Version.appCompat}"
+    const val androidMaterial = "com.google.android.material:material:${Version.androidMaterial}"
 }
 
 object KotlinX {

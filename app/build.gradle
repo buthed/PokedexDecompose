@@ -36,7 +36,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = '17'
-        languageVersion = '1.9'
     }
     buildFeatures {
         compose true
@@ -55,6 +54,14 @@ android {
 }
 
 dependencies {
+
+    implementation project(path: ':feature:pokemonslist:ui')
+    implementation project(path: ':feature:pokemonslist:domain')
+    implementation project(path: ':feature:pokemonslist:data')
+    implementation project(path: ':feature:pokemon_details:ui')
+    implementation project(path: ':feature:pokemon_details:domain')
+    implementation project(path: ':feature:pokemon_details:data')
+    implementation project(path: ':core:common')
 
     implementation Deps.core
     implementation platform(Deps.kotlinBomPlatform)
@@ -91,10 +98,6 @@ dependencies {
 
     //Coil
     implementation Coil.coil
-
-    //Paging 3.0
-    implementation "androidx.paging:paging-runtime:3.1.1"
-    implementation "androidx.paging:paging-compose:1.0.0-alpha18"
 
     // Tests
     testImplementation TestImplementation.junit
