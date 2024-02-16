@@ -11,10 +11,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.tematihonov.pokedexdecompose.R
+import com.tematihonov.pokedexdecompose.navigation.PokemonsListEvent
+import com.tematihonov.pokedexdecompose.navigation.Screen
 import com.tematihonov.pokedexdecompose.presentation.appcomponents.TopAppBarDefault
+import com.tematihonov.pokedexdecompose.presentation.pokemonslist.PokemonListComponent
 
 @Composable
-fun AboutAppUi() {
+fun AboutAppUi(component: AboutAppComponent) {
     Scaffold(
         topBar = {
             TopAppBarDefault(stringResource(id = R.string.about_app))
@@ -29,12 +32,17 @@ fun AboutAppUi() {
             Text(text = stringResource(id = R.string.about_app))
         }
     }
-
-
 }
+
+class FakeAboutAppComponent(): AboutAppComponent {
+    override fun onTabSelected(tab: Screen) {
+        TODO("Not yet implemented")
+    }
+}
+
 
 @Preview(showSystemUi = true)
 @Composable
 fun AboutAppUiPreview() {
-    AboutAppUi()
+    AboutAppUi(FakeAboutAppComponent())
 }

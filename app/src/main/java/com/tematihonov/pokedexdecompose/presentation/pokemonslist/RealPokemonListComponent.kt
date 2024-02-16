@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.setValue
 import com.arkivanov.decompose.ComponentContext
 import com.tematihonov.pokedexdecompose.navigation.PokemonsListEvent
+import com.tematihonov.pokedexdecompose.navigation.Screen
 
 class RealPokemonListComponent(
     componentContext: ComponentContext,
@@ -16,5 +17,4 @@ class RealPokemonListComponent(
     override fun onEvent(event: PokemonsListEvent) {
         onNavigateToDetailsScreen(pokemonsId)
     }
-
 }
