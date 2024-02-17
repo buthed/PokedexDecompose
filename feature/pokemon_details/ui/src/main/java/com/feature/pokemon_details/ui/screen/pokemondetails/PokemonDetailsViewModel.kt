@@ -1,6 +1,5 @@
 package com.feature.pokemon_details.ui.screen.pokemondetails
 
-import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -31,7 +30,6 @@ class PokemonDetailsViewModel @Inject constructor(
                 pokemon.value = Resource.Error(it.message!!)
             }.collect {
                 pokemon.value = Resource.Success(it)
-                Log.d("GGG", "pokemon ${it}")
             }
         }
     }

@@ -11,16 +11,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.core.common.navigation.Screen
-import com.core.common.navigation.components.AboutAppComponent
+import com.feature.about_app.ui.screen.components.AboutAppComponent
 import com.core.common.R
-import com.feature.about_app.ui.screen.components.TopAppBarDefault
+import com.feature.about_app.ui.screen.components.topappbar.TopAppBarUi
 
 
 @Composable
 fun AboutAppUi(component: AboutAppComponent) {
     Scaffold(
         topBar = {
-            TopAppBarDefault(stringResource(id = R.string.about_app))
+            TopAppBarUi(component.topAppBarComponent)
         }
     ) { paddingValues ->
         Box(
@@ -32,17 +32,4 @@ fun AboutAppUi(component: AboutAppComponent) {
             Text(text = stringResource(id = R.string.about_app))
         }
     }
-}
-
-class FakeAboutAppComponent(): AboutAppComponent {
-    override fun onTabSelected(tab: Screen) {
-        TODO("Not yet implemented")
-    }
-}
-
-
-@Preview(showSystemUi = true)
-@Composable
-fun AboutAppUiPreview() {
-    AboutAppUi(FakeAboutAppComponent())
 }

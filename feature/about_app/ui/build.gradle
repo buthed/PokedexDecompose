@@ -55,6 +55,11 @@ dependencies {
     implementation JetpackCompose.composeGraphics
     implementation JetpackCompose.composeUiToolingPreview
 
+    // Decompose
+    implementation Decompose.decompose
+    implementation Decompose.decomposeJetbrains
+    implementation Decompose.extensionsAndroid
+
     // Material
     implementation JetpackCompose.composeMaterial
     implementation JetpackCompose.composeMaterial3

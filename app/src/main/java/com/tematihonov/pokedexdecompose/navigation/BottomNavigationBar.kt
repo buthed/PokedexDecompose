@@ -17,7 +17,7 @@ import com.core.common.navigation.Screen
 fun BottomNavigationBar(
     items: List<Screen>,
     modifier: Modifier = Modifier,
-    onTabSelected: (Screen) -> Unit
+    onTabSelected: (Screen) -> Unit,
 ) {
 
     NavigationBar(

@@ -27,7 +27,7 @@ fun PokemonsListItemUi(
     entries: List<Result>,
     imageUrl: String,
     number: String,
-    selectnewPokemon: () ->Unit
+    selectnewPokemon: () -> Unit,
 ) {
     Row(
         Modifier
@@ -46,7 +46,7 @@ fun PokemonsListItemUi(
                 .size(80.dp)
         )
         Column {
-            Text(text = entries[rowIndex].name.replaceFirstChar { it.uppercase() },)
+            Text(text = entries[rowIndex].name.replaceFirstChar { it.uppercase() })
             Text(text = number)
         }
     }
@@ -59,5 +59,5 @@ class FakePokemonListComponent() : PokemonListItemComponent {
 @Preview(showSystemUi = true)
 @Composable
 fun PokemonsListItemPreview() {
-    PokemonsListItemUi(FakePokemonListComponent(),1, emptyList(), "", "1"){}
+    PokemonsListItemUi(FakePokemonListComponent(), 1, emptyList(), "", "1") {}
 }

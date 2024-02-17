@@ -1,7 +1,5 @@
 package com.feature.pokemonslist.domain.useccases.local
 
-import android.util.Log
-
 class CreatePokemonsImageUrlUseCase {
     fun invoke(pokemonsUrl: String): String {
         val pokemonsId: Int = (pokemonsUrl.dropLast(1).takeLastWhile { it.isDigit() }).toInt()

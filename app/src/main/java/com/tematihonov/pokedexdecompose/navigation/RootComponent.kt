@@ -9,7 +9,7 @@ import com.arkivanov.decompose.router.stack.pushNew
 import com.core.common.navigation.Screen
 import com.feature.pokemon_details.ui.screen.pokemondetails.components.RealPokemonDetailsComponent
 import com.feature.pokemonslist.ui.screen.pokemonslist.components.RealPokemonListComponent
-import com.core.common.navigation.components.RealAboutAppComponent
+import com.feature.about_app.ui.screen.components.RealAboutAppComponent
 import kotlinx.serialization.Serializable
 
 class RootComponent(

@@ -16,12 +16,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-//    @Singleton
-//    @Provides
-//    fun provideNetworkRepositoryImpl(
-//        apiService: ApiService
-//    ) = NetworkRepositoryImpl(apiService)
-
     @Singleton
     @Provides
     fun provideRetrofit(): ApiService {

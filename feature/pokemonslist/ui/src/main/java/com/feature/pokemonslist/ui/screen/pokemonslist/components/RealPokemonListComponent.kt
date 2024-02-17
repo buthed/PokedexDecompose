@@ -8,14 +8,14 @@ import com.arkivanov.decompose.childContext
 import com.feature.pokemonslist.ui.screen.pokemonslist.components.error.RealErrorComponent
 import com.feature.pokemonslist.ui.screen.pokemonslist.components.pokemonlistItem.RealPokemonListItemComponent
 import com.feature.pokemonslist.ui.screen.pokemonslist.components.progressindicator.RealProgressIndicatorComponent
-import com.feature.pokemonslist.ui.screen.pokemonslist.components.toolbar.RealToolbarComponent
+import com.feature.pokemonslist.ui.screen.pokemonslist.components.topbar.RealTopBarComponent
 
 class RealPokemonListComponent(
     componentContext: ComponentContext,
     private val onNavigateToDetailsScreen: (String) -> Unit,
 ) : ComponentContext by componentContext, PokemonListComponent {
 
-    var pokemonName by mutableStateOf("")
+    private var pokemonName by mutableStateOf("")
 
     override fun onEvent(event: PokemonsListEvent) {
         when(event) {
@@ -28,8 +28,8 @@ class RealPokemonListComponent(
         }
     }
 
-    override val toolbarComponent = RealToolbarComponent(
-        childContext(key = "toolbar")
+    override val topBarComponent = RealTopBarComponent(
+        childContext(key = "topBar")
     )
 
     override val errorComponent = RealErrorComponent(

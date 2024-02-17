@@ -1,7 +1,6 @@
 package com.feature.pokemonslist.domain.useccases.network
 
 import com.feature.pokemonslist.domain.model.PokemonsListResponse
-import com.feature.pokemonslist.domain.model.Result
 import com.feature.pokemonslist.domain.repo.PokedexRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

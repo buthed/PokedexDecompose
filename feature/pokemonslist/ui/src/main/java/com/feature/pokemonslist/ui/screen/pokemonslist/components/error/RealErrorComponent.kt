@@ -4,4 +4,5 @@ import com.arkivanov.decompose.ComponentContext
 
 class RealErrorComponent(componentContext: ComponentContext) :
     ComponentContext by componentContext, ErrorComponent {
+
 }

@@ -1,6 +1,5 @@
 package com.feature.pokemonslist.ui.screen.pokemonslist
 
-import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -34,11 +33,9 @@ class PokemonsListViewModel @Inject constructor(
         viewModelScope.launch {
             networkUnionUseCases.getPokemonListUseCase.invoke(20, curPage*20).catch {
                 pokemonsList.value = Resource.Error(it.message!!)
-                Log.d("GGG", "error ${it.message}")
             }.collect {
                 curPage ++
                 endReached.value = curPage * 20 >= it.count
-                Log.d("GGG", "paginate pokemonsArrayList size: ${pokemonsArrayList.value.size}, curPage: $curPage")
                 pokemonsList.value = Resource.Success(it.results)
                 pokemonsArrayList.value += it.results.toMutableList()
 

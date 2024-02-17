@@ -1,6 +1,5 @@
 package com.feature.pokemon_details.ui.screen.pokemondetails
 
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,15 +20,14 @@ import com.feature.pokemon_details.ui.screen.pokemondetails.components.PokemonDe
 import com.feature.pokemon_details.ui.screen.pokemondetails.components.error.ErrorUi
 import com.feature.pokemon_details.ui.screen.pokemondetails.components.pokemoncharacteristics.PokemonCharacteristicUi
 import com.feature.pokemon_details.ui.screen.pokemondetails.components.progressindicator.ProgressIndicatorUi
-import com.feature.pokemon_details.ui.screen.pokemondetails.components.toolbar.ToolbarUi
+import com.feature.pokemon_details.ui.screen.pokemondetails.components.topbar.TopBarUi
 
 @Composable
 fun PokemonDetailsUi(pokemonsName: String, component: PokemonDetailsComponent) {
-    Log.d("GGG", "opened PokemonDetailsViewModel pokemonsName - ${pokemonsName}")
     val viewModel = hiltViewModel<PokemonDetailsViewModel>()
     Scaffold(
         topBar = {
-            ToolbarUi(component.toolbarComponent) { component.goBack() }
+            TopBarUi(component.topBarComponent) { component.goBack() }
         }
     ) { paddingValues ->
         when (val resultPokemonsList = viewModel.pokemon.value) {

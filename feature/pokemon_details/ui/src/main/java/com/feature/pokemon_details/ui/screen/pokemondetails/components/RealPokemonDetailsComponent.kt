@@ -5,7 +5,7 @@ import com.arkivanov.decompose.childContext
 import com.feature.pokemon_details.ui.screen.pokemondetails.components.error.RealErrorComponent
 import com.feature.pokemon_details.ui.screen.pokemondetails.components.pokemoncharacteristics.RealPokemonCharacteristicsComponent
 import com.feature.pokemon_details.ui.screen.pokemondetails.components.progressindicator.RealProgressIndicatorComponent
-import com.feature.pokemon_details.ui.screen.pokemondetails.components.toolbar.RealToolbarComponent
+import com.feature.pokemon_details.ui.screen.pokemondetails.components.topbar.RealTopBarComponent
 
 class RealPokemonDetailsComponent (
     val pokemonName: String,
@@ -17,8 +17,8 @@ class RealPokemonDetailsComponent (
         backToPokemonsListScreen()
     }
 
-    override val toolbarComponent = RealToolbarComponent(
-        childContext(key = "toolbar")
+    override val topBarComponent = RealTopBarComponent(
+        childContext(key = "topBar")
     )
 
     override val errorComponent = RealErrorComponent(

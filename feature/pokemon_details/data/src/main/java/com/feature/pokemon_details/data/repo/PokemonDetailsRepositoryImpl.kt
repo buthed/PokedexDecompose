@@ -13,5 +13,4 @@ class PokemonDetailsRepositoryImpl @Inject constructor(
     override suspend fun getPokemonDetails(name: String): PokemonResponse {
         return pokedexDataProvider.getPokemonDetails(name).toDomainPokemon()
     }
-
 }
