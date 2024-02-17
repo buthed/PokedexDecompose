@@ -34,6 +34,7 @@ object Version {
     const val testJunit = "4.13.2"
     const val junit = "1.1.5"
     const val espresso = "3.5.1"
+    const val mockwebserver = "4.12.0"
 }
 
 object Deps {
@@ -85,6 +86,7 @@ object Coil {
 
 object TestImplementation {
     const val junit = "junit:junit:${Version.testJunit}"
+    const val mockwebserver = "com.squareup.okhttp3:mockwebserver:${Version.mockwebserver}"
 }
 
 object AndroidTestImplementation {
