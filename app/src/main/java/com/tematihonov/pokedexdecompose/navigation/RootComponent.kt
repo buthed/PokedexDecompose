@@ -7,8 +7,8 @@ import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.pushNew
 import com.core.common.navigation.Screen
-import com.core.common.navigation.components.RealPokemonDetailsComponent
-import com.core.common.navigation.components.RealPokemonListComponent
+import com.feature.pokemon_details.ui.screen.pokemondetails.components.RealPokemonDetailsComponent
+import com.feature.pokemonslist.ui.screen.pokemonslist.components.RealPokemonListComponent
 import com.core.common.navigation.components.RealAboutAppComponent
 import kotlinx.serialization.Serializable
 

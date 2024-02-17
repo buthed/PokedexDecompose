@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">PokedexDecompose</string>
+    <string name="error">Какая-то ошиибка, попробуйте позже</string>
+
 
     // Pokemons list
     <string name="pokemons_list">Список покемонов</string>

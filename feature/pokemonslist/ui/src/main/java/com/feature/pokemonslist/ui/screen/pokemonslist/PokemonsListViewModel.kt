@@ -6,8 +6,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.core.common.utils.Resource
-import com.feature.pokemonslist.domain.model.PokemonsListResponse
 import com.feature.pokemonslist.domain.model.Result
+import com.feature.pokemonslist.domain.useccases.LocalUnionUseCase
 import com.feature.pokemonslist.domain.useccases.NetworkUnionUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
@@ -17,6 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PokemonsListViewModel @Inject constructor(
     private val networkUnionUseCases: NetworkUnionUseCases,
+    private val localUnionUseCase: LocalUnionUseCase
 ) : ViewModel() {
 
     var pokemonsList: MutableState<Resource<List<Result>>> = mutableStateOf(Resource.Loading())
@@ -33,14 +34,23 @@ class PokemonsListViewModel @Inject constructor(
         viewModelScope.launch {
             networkUnionUseCases.getPokemonListUseCase.invoke(20, curPage*20).catch {
                 pokemonsList.value = Resource.Error(it.message!!)
+                Log.d("GGG", "error ${it.message}")
             }.collect {
                 curPage ++
-                endReached.value = curPage * 20 >= it.size
+                endReached.value = curPage * 20 >= it.count
                 Log.d("GGG", "paginate pokemonsArrayList size: ${pokemonsArrayList.value.size}, curPage: $curPage")
-                pokemonsList.value = Resource.Success(it)
-                pokemonsArrayList.value += it.toMutableList()
+                pokemonsList.value = Resource.Success(it.results)
+                pokemonsArrayList.value += it.results.toMutableList()
 
             }
         }
+    }
+
+    fun setNewPokemonNumber(pokemonsUrl: String): String {
+        return localUnionUseCase.numberFormatterUseCase.invoke(pokemonsUrl)
+    }
+
+    fun setNewPokemonImageUrl(pokemonsUrl: String): String {
+        return localUnionUseCase.createPokemonsImageUrlUseCase.invoke(pokemonsUrl)
     }
 }

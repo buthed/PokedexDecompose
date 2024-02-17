@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.core.common.utils.Resource
 import com.feature.pokemon_details.domain.model.PokemonResponse.PokemonResponse
+import com.feature.pokemon_details.domain.usecases.LocalUnionUseCases
 import com.feature.pokemon_details.domain.usecases.NetworkUnionUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
@@ -16,7 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PokemonDetailsViewModel @Inject constructor(
-    private val networkUnionUseCases: NetworkUnionUseCases
+    private val networkUnionUseCases: NetworkUnionUseCases,
+    private val localUnionUseCase: LocalUnionUseCases
 ): ViewModel() {
 
     val pokemon: MutableState<Resource<PokemonResponse>> = mutableStateOf(Resource.Loading())
@@ -24,13 +26,21 @@ class PokemonDetailsViewModel @Inject constructor(
     fun loadPokemonInfo(pokemonsName: String) {
         viewModelScope.launch {
             networkUnionUseCases.getPokemonDetailsUseCase.invoke(pokemonsName).onStart {
-                pokemon.value = com.core.common.utils.Resource.Loading()
+                pokemon.value = Resource.Loading()
             }.catch {
-                pokemon.value = com.core.common.utils.Resource.Error(it.message!!)
+                pokemon.value = Resource.Error(it.message!!)
             }.collect {
-                pokemon.value = com.core.common.utils.Resource.Success(it)
+                pokemon.value = Resource.Success(it)
                 Log.d("GGG", "pokemon ${it}")
             }
         }
+    }
+
+    fun setNewPokemonNumber(pokemonsId: Int): String {
+        return localUnionUseCase.numberFormatterUseCase.invoke(pokemonsId)
+    }
+
+    fun setNewPokemonImageUrl(pokemonsId: Int): String {
+        return localUnionUseCase.createPokemonsImageUrlUseCase.invoke(pokemonsId)
     }
 }

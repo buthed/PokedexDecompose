@@ -8,15 +8,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.core.common.navigation.components.PokemonListComponent
-import com.core.common.R
-import com.core.common.navigation.components.PokemonsListEvent
-import com.feature.pokemonslist.ui.screen.pokemonslist.components.PokemonsListItem
-import com.feature.pokemonslist.ui.screen.pokemonslist.components.TopAppBarDefault
+import com.core.common.utils.Resource
+import com.feature.pokemonslist.ui.screen.pokemonslist.components.PokemonListComponent
+import com.feature.pokemonslist.ui.screen.pokemonslist.components.PokemonsListEvent
+import com.feature.pokemonslist.ui.screen.pokemonslist.components.error.ErrorUi
+import com.feature.pokemonslist.ui.screen.pokemonslist.components.pokemonlistItem.PokemonsListItemUi
+import com.feature.pokemonslist.ui.screen.pokemonslist.components.progressindicator.ProgressIndicatorUi
+import com.feature.pokemonslist.ui.screen.pokemonslist.components.toolbar.ToolbarUi
 
 @Composable
 fun PokemonsListUi(component: PokemonListComponent) {
@@ -24,33 +24,37 @@ fun PokemonsListUi(component: PokemonListComponent) {
     val pokemonsArrayList by remember { viewModel.pokemonsArrayList }
     val endReached by remember { viewModel.endReached }
 
-    when (val resultPokemonsList = viewModel.pokemonsList.value) {
-        is com.core.common.utils.Resource.Error -> {
-            //TODO()
+    Scaffold(
+        topBar = {
+            ToolbarUi(component.toolbarComponent)
         }
+    ) { paddingValues ->
 
-        is com.core.common.utils.Resource.Loading -> {
-            //TODO()
-        }
+        when (val resultPokemonsList = viewModel.pokemonsList.value) {
+            is Resource.Error -> {
+                ErrorUi(component.errorComponent, resultPokemonsList.message)
+            }
 
-        is com.core.common.utils.Resource.Success -> {
-            Scaffold(
-                topBar = {
-                    TopAppBarDefault(stringResource(id = R.string.pokemons_list))
-                }
-            ) { paddingValues ->
+            is Resource.Loading -> {
+                ProgressIndicatorUi(component.progressIndicatorComponent)
+            }
+
+            is Resource.Success -> {
                 if (viewModel.pokemonsArrayList.value.isNotEmpty()) {
-                    LazyColumn(modifier = Modifier.padding(top = paddingValues.calculateTopPadding(), bottom = 25.dp)) {
-                        val itemCount = if(pokemonsArrayList.size % 2 == 0) {
-                            pokemonsArrayList.size / 2
-                        } else {
-                            pokemonsArrayList.size / 2 + 1
-                        }
+                    LazyColumn(modifier = Modifier.padding(top = paddingValues.calculateTopPadding(), bottom = 10.dp)) {
+                        val itemCount = if(pokemonsArrayList.size % 2 == 0) { pokemonsArrayList.size / 2
+                        } else { pokemonsArrayList.size / 2 + 1 }
+
                         items(itemCount) {
-                            if (it >= itemCount -1 && !endReached) {
-                                viewModel.loadPokemonsList()
-                            }
-                            PokemonsListItem(rowIndex = it, entries = pokemonsArrayList) {
+                            if (it >= itemCount -1 && !endReached) { viewModel.loadPokemonsList() }
+
+                            PokemonsListItemUi(
+                                pokemonListItemComponent = component.pokemonListItemComponent,
+                                rowIndex = it,
+                                entries = pokemonsArrayList,
+                                imageUrl = viewModel.setNewPokemonImageUrl(pokemonsArrayList[it].url),
+                                number = viewModel.setNewPokemonNumber(pokemonsArrayList[it].url)
+                            ) {
                                 component.onEvent(PokemonsListEvent.UpdateText(pokemonsArrayList[it].name))
                                 component.onEvent(PokemonsListEvent.ClickButtonA(pokemonsArrayList[it].name))
                             }
@@ -59,19 +63,24 @@ fun PokemonsListUi(component: PokemonListComponent) {
                     }
                 }
             }
-        }
+         }
     }
 }
 
-class FakePokemonListComponent() : PokemonListComponent {
-    override fun onEvent(event: PokemonsListEvent) {
-        TODO("Not yet implemented")
-    }
-
-}
-
-@Preview(showSystemUi = true)
-@Composable
-fun PokemonsListPreview() {
-    PokemonsListUi(FakePokemonListComponent())
-}
+//class FakePokemonListComponent(
+//    override val toolbarComponent: ToolbarComponent,
+//    override val errorComponent: ErrorComponent,
+//    override val progressIndicatorComponent: ProgressIndicatorComponent,
+//    override val pokemonListItemComponent: PokemonListItemComponent
+//) : PokemonListComponent {
+//    override fun onEvent(event: PokemonsListEvent) {
+//        TODO("Not yet implemented")
+//    }
+//
+//}
+//
+//@Preview(showSystemUi = true)
+//@Composable
+//fun PokemonsListPreview() {
+//    PokemonsListUi(FakePokemonListComponent())
+//}

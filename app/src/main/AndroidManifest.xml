@@ -15,6 +15,7 @@
         tools:targetApi="26" >
         <activity
             android:name=".presentation.MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:theme="@style/Theme.PokedexDecompose" >
             <intent-filter>
